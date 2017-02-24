@@ -5771,14 +5771,14 @@ if 'MessageLogger' in process.__dict__:
     process.MessageLogger.categories.append('FastReport')
 
 # load the DQMStore and DQMRootOutputModule
-process.load( "DQMServices.Core.DQMStore_cfi" )
-process.DQMStore.enableMultiThread = True
-
-process.dqmOutput = cms.OutputModule("DQMRootOutputModule",
-    fileName = cms.untracked.string("DQMIO.root")
-)
-
-process.DQMOutput = cms.EndPath( process.dqmOutput )
+# process.load( "DQMServices.Core.DQMStore_cfi" )
+# process.DQMStore.enableMultiThread = True
+# 
+# process.dqmOutput = cms.OutputModule("DQMRootOutputModule",
+#     fileName = cms.untracked.string("DQMIO.root")
+# )
+# 
+# process.DQMOutput = cms.EndPath( process.dqmOutput )
 
 # add specific customizations
 _customInfo = {}
