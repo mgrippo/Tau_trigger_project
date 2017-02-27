@@ -58,4 +58,3 @@ if __name__ == '__main__':
         print 'submitting config:'
         print config
         submit(config)
-
