@@ -7,7 +7,7 @@ config = config()
 config.General.transferOutputs = True
 config.General.transferLogs    = True
 
-config.JobType.psetName        = 'customise_cfg.py'
+config.JobType.psetName        = 'customise_data_cfg.py'
 config.JobType.pluginName      = 'Analysis'
 config.JobType.outputFiles     = ['outputFULL.root']
 config.JobType.maxMemoryMB     = 4000
@@ -54,14 +54,14 @@ if __name__ == '__main__':
         for k, v in datasets.iteritems():
             # We want to put all the CRAB project directories from the tasks we submit here into one common directory.
             # That's why we need to set this parameter (here or above in the configuration file, it does not matter, we will not overwrite it).
-            config.General.workArea   = 'crab_mc_' + tag + '_' + kj
+            config.General.workArea   = 'crab_data_' + tag + '_' + kj
             config.Data.outLFNDirBase = '/store/group/phys_tau/' + tag + '/' + kj
-            config.Data.lumiMask = kj
+            config.Data.lumiMask = vj
             config.General.requestName = k
             config.Data.inputDataset = v[0]
             config.Data.secondaryInputDataset = v[1]
             print 'submitting config:'
             print config
-            #submit(config)
+            submit(config)
             #import pdb ; pdb.set_trace()
 

@@ -1,7 +1,6 @@
 import FWCore.ParameterSet.Config as cms
 
-#from hlt_Path_original_mc import process # adapt to your case
-from hlt_myPathModified_mc import process # adapt to your case
+from hlt_double_tau_open_pt_v6_mc_cfg import process # adapt to your case
 
 
 process.source.fileNames          = cms.untracked.vstring([
