@@ -7,17 +7,20 @@ config.General.transferLogs    = True
 
 config.JobType.psetName        = 'customise_cfg.py'
 config.JobType.pluginName      = 'Analysis'
-config.JobType.outputFiles     = ['outputFULL_htt.root']
-config.JobType.maxMemoryMB     = 2500
+config.JobType.outputFiles     = ['outputFULL.root']
+config.JobType.maxMemoryMB     = 4000
 config.JobType.priority        = 99999
 
-config.Data.unitsPerJob        = 12000
-config.Data.splitting          = 'EventAwareLumiBased'
+# config.Data.unitsPerJob        = 12000
+# config.Data.splitting          = 'EventAwareLumiBased'
+
+config.Data.splitting          = 'FileBased'
+config.Data.unitsPerJob        = 1
 
 # JSON files:
 # /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions15/13TeV/
 config.Data.publication        = True
-config.Data.outputDatasetTag   = 'doubleTauTrigger'
+config.Data.outputDatasetTag   = 'doubleTauTriggerOpenPt'
 
 config.Site.storageSite        = 'T2_CH_CERN'
 # config.Site.blacklist          = ['T1_US_FNAL']
