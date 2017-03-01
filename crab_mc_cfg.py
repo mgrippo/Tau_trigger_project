@@ -5,7 +5,7 @@ config = config()
 config.General.transferOutputs = True
 config.General.transferLogs    = True
 
-config.JobType.psetName        = 'customise_cfg.py'
+config.JobType.psetName        = 'customise_mc_cfg.py'
 config.JobType.pluginName      = 'Analysis'
 config.JobType.outputFiles     = ['outputFULL.root']
 config.JobType.maxMemoryMB     = 4000
