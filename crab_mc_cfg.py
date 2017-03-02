@@ -8,14 +8,14 @@ config.General.transferLogs    = True
 config.JobType.psetName        = 'customise_mc_cfg.py'
 config.JobType.pluginName      = 'Analysis'
 config.JobType.outputFiles     = ['outputFULL.root']
-config.JobType.maxMemoryMB     = 4000
+config.JobType.maxMemoryMB     = 9999
 config.JobType.priority        = 99999
 
-# config.Data.unitsPerJob        = 12000
-# config.Data.splitting          = 'EventAwareLumiBased'
+config.Data.splitting          = 'EventAwareLumiBased'
+config.Data.unitsPerJob        = 10
 
-config.Data.splitting          = 'FileBased'
-config.Data.unitsPerJob        = 1
+# config.Data.splitting          = 'FileBased'
+# config.Data.unitsPerJob        = 1
 
 # JSON files:
 # /afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions15/13TeV/
@@ -32,7 +32,7 @@ if __name__ == '__main__':
     from CRABClient.ClientExceptions import ClientException
     from httplib import HTTPException
 
-    tag = 'doubleTauTrigger'
+    tag = 'doubleTauTriggerV2'
 
     # We want to put all the CRAB project directories from the tasks we submit here into one common directory.
     # That's why we need to set this parameter (here or above in the configuration file, it does not matter, we will not overwrite it).

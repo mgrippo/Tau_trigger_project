@@ -4,15 +4,15 @@ zero_bias_datasets = OrderedDict()
 
 # 2016B
 zero_bias_datasets['ZeroBias_2016B'  ] = ['/ZeroBias/Run2016B-23Sep2016-v3/MINIAOD'   , '/ZeroBias/Run2016B-v2/RAW'  , ]
-zero_bias_datasets['Zero0Bias_2016B' ] = ['/ZeroBias0/Run2016B-17Jan2017-v4/MINIAOD'  , '/ZeroBias0/Run2016B-v2/RAW' , ]
-zero_bias_datasets['Zero1Bias_2016B' ] = ['/ZeroBias1/Run2016B-17Jan2017-v1/MINIAOD'  , '/ZeroBias1/Run2016B-v2/RAW' , ]
-zero_bias_datasets['Zero2Bias_2016B' ] = ['/ZeroBias2/Run2016B-17Jan2017-v1/MINIAOD'  , '/ZeroBias2/Run2016B-v2/RAW' , ]
-zero_bias_datasets['Zero3Bias_2016B' ] = ['/ZeroBias3/Run2016B-17Jan2017-v1/MINIAOD'  , '/ZeroBias3/Run2016B-v2/RAW' , ]
-zero_bias_datasets['Zero4Bias_2016B' ] = ['/ZeroBias4/Run2016B-17Jan2017-v1/MINIAOD'  , '/ZeroBias4/Run2016B-v2/RAW' , ]
-zero_bias_datasets['Zero5Bias_2016B' ] = ['/ZeroBias5/Run2016B-17Jan2017-v4/MINIAOD'  , '/ZeroBias5/Run2016B-v2/RAW' , ]
-zero_bias_datasets['Zero6Bias_2016B' ] = ['/ZeroBias6/Run2016B-17Jan2017-v1/MINIAOD'  , '/ZeroBias6/Run2016B-v2/RAW' , ]
-zero_bias_datasets['Zero7Bias_2016B' ] = ['/ZeroBias7/Run2016B-17Jan2017-v3/MINIAOD'  , '/ZeroBias7/Run2016B-v2/RAW' , ]
-zero_bias_datasets['Zero8Bias_2016B' ] = ['/ZeroBias8/Run2016B-17Jan2017-v1/MINIAOD'  , '/ZeroBias8/Run2016B-v2/RAW' , ]
+zero_bias_datasets['ZeroBias0_2016B' ] = ['/ZeroBias0/Run2016B-17Jan2017-v4/MINIAOD'  , '/ZeroBias0/Run2016B-v2/RAW' , ]
+zero_bias_datasets['ZeroBias1_2016B' ] = ['/ZeroBias1/Run2016B-17Jan2017-v1/MINIAOD'  , '/ZeroBias1/Run2016B-v2/RAW' , ]
+zero_bias_datasets['ZeroBias2_2016B' ] = ['/ZeroBias2/Run2016B-17Jan2017-v1/MINIAOD'  , '/ZeroBias2/Run2016B-v2/RAW' , ]
+zero_bias_datasets['ZeroBias3_2016B' ] = ['/ZeroBias3/Run2016B-17Jan2017-v1/MINIAOD'  , '/ZeroBias3/Run2016B-v2/RAW' , ]
+zero_bias_datasets['ZeroBias4_2016B' ] = ['/ZeroBias4/Run2016B-17Jan2017-v1/MINIAOD'  , '/ZeroBias4/Run2016B-v2/RAW' , ]
+zero_bias_datasets['ZeroBias5_2016B' ] = ['/ZeroBias5/Run2016B-17Jan2017-v4/MINIAOD'  , '/ZeroBias5/Run2016B-v2/RAW' , ]
+zero_bias_datasets['ZeroBias6_2016B' ] = ['/ZeroBias6/Run2016B-17Jan2017-v1/MINIAOD'  , '/ZeroBias6/Run2016B-v2/RAW' , ]
+zero_bias_datasets['ZeroBias7_2016B' ] = ['/ZeroBias7/Run2016B-17Jan2017-v3/MINIAOD'  , '/ZeroBias7/Run2016B-v2/RAW' , ]
+zero_bias_datasets['ZeroBias8_2016B' ] = ['/ZeroBias8/Run2016B-17Jan2017-v1/MINIAOD'  , '/ZeroBias8/Run2016B-v2/RAW' , ]
 # 2016 C
 zero_bias_datasets['ZeroBias_2016C'  ] = ['/ZeroBias/Run2016C-23Sep2016-v1/MINIAOD'   , '/ZeroBias/Run2016C-v2/RAW'  , ]
 # 2016 D
