@@ -46,7 +46,7 @@ process.options = cms.untracked.PSet(
 )
 
 # save only taus with some non too small pt
-process.hltDoublePFTau35TrackPt1MediumCombinedIsolationDz02Reg.JetMinPt = cms.double( 20. )
+process.hltDoublePFTau35Reg.MinPt = cms.double( 20. )
 
 
 # create new trigger objects from your trigger results
