@@ -5606,8 +5606,9 @@ process.hltDoublePFTau35TrackPt1MediumCombinedIsolationReg = cms.EDFilter( "HLT1
     triggerType = cms.int32( 84 )
 )
 
-#for the next 2 modules the original inputTag was: hltL1JetsHLTDoublePFTauTrackPt1MediumCombinedIsolationMatchReg
-#now modified with hltSelectedPFTausTrackPt1MediumCombinedIsolationReg
+# RM HOOK
+# for the next 2 modules the original inputTag was: hltL1JetsHLTDoublePFTauTrackPt1MediumCombinedIsolationMatchReg
+# now modified with hltSelectedPFTausTrackPt1MediumCombinedIsolationReg
 process.hltDoublePFTau35TrackPt1MediumCombinedIsolationL1HLTMatchedReg = cms.EDFilter( "HLT1PFTau",
     saveTags = cms.bool( True ),
     MinPt = cms.double( 0.0 ),
@@ -5615,6 +5616,7 @@ process.hltDoublePFTau35TrackPt1MediumCombinedIsolationL1HLTMatchedReg = cms.EDF
     MaxEta = cms.double( 2.1 ),
     MinMass = cms.double( -1.0 ),
     inputTag = cms.InputTag( "hltSelectedPFTausTrackPt1MediumCombinedIsolationReg" ),
+#     inputTag = cms.InputTag( "hltL1JetsHLTDoublePFTauTrackPt1MediumCombinedIsolationMatchReg" ),
     MinE = cms.double( -1.0 ),
     triggerType = cms.int32( 84 )
 )
@@ -5622,6 +5624,7 @@ process.hltDoublePFTau35TrackPt1MediumCombinedIsolationDz02Reg = cms.EDFilter( "
     saveTags = cms.bool( True ),
     TriggerType = cms.int32( 84 ),
     JetSrc = cms.InputTag( "hltSelectedPFTausTrackPt1MediumCombinedIsolationReg" ),
+#     JetSrc = cms.InputTag( "hltL1JetsHLTDoublePFTauTrackPt1MediumCombinedIsolationMatchReg" ),
     JetMinPt = cms.double( 0.0 ),
     JetMaxDZ = cms.double( 0.2 ),
     JetMinDR = cms.double( 0.5 ),
@@ -5696,10 +5699,6 @@ process.source = cms.Source( "PoolSource",
     )
 )
 
-# run the Full L1T emulator, then repack the data into a new RAW collection, to be used by the HLT
-from HLTrigger.Configuration.CustomConfigs import L1REPACK
-process = L1REPACK(process,"Full")
-
 # adapt HLT modules to the correct process name
 if 'hltTrigReport' in process.__dict__:
     process.hltTrigReport.HLTriggerResults                    = cms.InputTag( 'TriggerResults', '', 'TEST' )
@@ -5732,18 +5731,6 @@ if 'hltDQMHLTScalers' in process.__dict__:
 if 'hltDQML1SeedLogicScalers' in process.__dict__:
     process.hltDQML1SeedLogicScalers.processname              = 'TEST'
 
-# add a single "keep *" output
-process.hltOutputFULL = cms.OutputModule( "PoolOutputModule",
-    fileName = cms.untracked.string( "outputFULL.root" ),
-    fastCloning = cms.untracked.bool( False ),
-    dataset = cms.untracked.PSet(
-        dataTier = cms.untracked.string( 'RECO' ),
-        filterName = cms.untracked.string( '' )
-    ),
-    outputCommands = cms.untracked.vstring( 'keep *' )
-)
-process.FULLOutput = cms.EndPath( process.hltOutputFULL )
-
 # limit the number of events to be processed
 process.maxEvents = cms.untracked.PSet(
     input = cms.untracked.int32( 100 )
@@ -5771,14 +5758,14 @@ if 'MessageLogger' in process.__dict__:
     process.MessageLogger.categories.append('FastReport')
 
 # load the DQMStore and DQMRootOutputModule
-process.load( "DQMServices.Core.DQMStore_cfi" )
-process.DQMStore.enableMultiThread = True
-
-process.dqmOutput = cms.OutputModule("DQMRootOutputModule",
-    fileName = cms.untracked.string("DQMIO.root")
-)
-
-process.DQMOutput = cms.EndPath( process.dqmOutput )
+# process.load( "DQMServices.Core.DQMStore_cfi" )
+# process.DQMStore.enableMultiThread = True
+# 
+# process.dqmOutput = cms.OutputModule("DQMRootOutputModule",
+#     fileName = cms.untracked.string("DQMIO.root")
+# )
+# 
+# process.DQMOutput = cms.EndPath( process.dqmOutput )
 
 # add specific customizations
 _customInfo = {}
