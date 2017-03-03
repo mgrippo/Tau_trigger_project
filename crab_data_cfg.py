@@ -13,8 +13,8 @@ config.JobType.outputFiles     = ['outputFULL.root']
 config.JobType.maxMemoryMB     = 4000
 config.JobType.priority        = 99999
 
-config.Data.unitsPerJob        = 40
 config.Data.splitting          = 'LumiBased'
+config.Data.unitsPerJob        = 20
 
 config.Data.publication        = True
 config.Data.outputDatasetTag   = 'doubleTauTriggerOpenPt'
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     from CRABClient.ClientExceptions import ClientException
     from httplib import HTTPException
 
-    tag = 'doubleTauTrigger'
+    tag = 'doubleTauTriggerV3'
     
     def submit(config):
         try:
@@ -52,6 +52,9 @@ if __name__ == '__main__':
 
     for kj, vj in jsons.iteritems():
         for k, v in datasets.iteritems():
+            # the JSON files are for H only
+            if k != 'ZeroBias_2016H':
+                continue
             # We want to put all the CRAB project directories from the tasks we submit here into one common directory.
             # That's why we need to set this parameter (here or above in the configuration file, it does not matter, we will not overwrite it).
             config.General.workArea   = 'crab_data_' + tag + '_' + kj
