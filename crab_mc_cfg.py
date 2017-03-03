@@ -11,8 +11,8 @@ config.JobType.outputFiles     = ['outputFULL.root']
 config.JobType.maxMemoryMB     = 9999
 config.JobType.priority        = 99999
 
-config.Data.splitting          = 'EventAwareLumiBased'
-config.Data.unitsPerJob        = 10
+config.Data.splitting          = 'EventAwareLumiBased' # split by number of events
+config.Data.unitsPerJob        = 30
 
 # config.Data.splitting          = 'FileBased'
 # config.Data.unitsPerJob        = 1
@@ -32,7 +32,7 @@ if __name__ == '__main__':
     from CRABClient.ClientExceptions import ClientException
     from httplib import HTTPException
 
-    tag = 'doubleTauTriggerV2'
+    tag = 'doubleTauTriggerV3'
 
     # We want to put all the CRAB project directories from the tasks we submit here into one common directory.
     # That's why we need to set this parameter (here or above in the configuration file, it does not matter, we will not overwrite it).
@@ -59,3 +59,4 @@ if __name__ == '__main__':
         print 'submitting config:'
         print config
         submit(config)
+
