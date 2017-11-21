@@ -1,42 +1,44 @@
 import FWCore.ParameterSet.Config as cms
 
-from hlt_double_tau_open_pt_v7_data_cfg import process # adapt to your case
+from hlt_double_tau_asym_data_cfg import process # adapt to your case
 
 
 process.source.fileNames          = cms.untracked.vstring([
     # put here your MINIAOD files
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/MINIAOD/23Sep2016-v1/100000/020197DC-6987-E611-8BCB-008CFA197C38.root',
+    'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/MINIAOD/06Nov2017-v1/150000/020A8867-F3C2-E711-876C-4C79BA1809AF.root',
 ])
 
 process.source.secondaryFileNames = cms.untracked.vstring([
     # put here your RAW parent files
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/278/875/00000/08984CA8-9763-E611-910E-FA163E28898E.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/278/875/00000/0E35D6E9-9C63-E611-9E9C-FA163E7FB4F5.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/278/975/00000/940D2C7C-EB64-E611-A090-02163E011B97.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/029/00000/3636DCF4-BF65-E611-AEBA-02163E014192.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/115/00000/2E36E6B2-2B67-E611-8F31-FA163EE43532.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/694/00000/7A125B12-746D-E611-8B5A-FA163E8CCDC0.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/694/00000/C66ACCAD-726D-E611-9487-FA163E1031EB.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/694/00002/BA4B4256-6B6D-E611-8CDC-02163E011EE8.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/716/00000/0CBEAE96-A46D-E611-9F7A-FA163E184B10.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/716/00000/6E982A07-A96D-E611-B028-02163E0135FB.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/716/00000/6ED0C7BA-A76D-E611-B5F6-02163E01420E.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/716/00000/C45E15B6-A76D-E611-8E32-02163E01394C.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/766/00000/26462D94-7B6E-E611-A2F9-02163E014700.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/766/00000/682ED06C-856E-E611-ADA4-02163E01360C.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/766/00000/6CD22259-8F6E-E611-9F96-FA163EF437E8.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/766/00000/6E266E1B-866E-E611-B536-02163E0118A9.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/766/00000/7A23EDD8-8B6E-E611-803C-FA163E759B34.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/766/00000/94693415-6C6E-E611-B712-02163E01468A.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/766/00000/BAB3B7C1-806E-E611-A660-FA163EAAD2D1.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/766/00000/D854BFB1-796E-E611-9EDC-02163E014623.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/766/00000/D88B90D9-766E-E611-B116-02163E014157.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/766/00000/E235A881-806E-E611-9EE3-02163E011CBA.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/841/00000/40EF3FB5-0570-E611-9859-FA163E371E58.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/841/00000/5ABAE451-F86F-E611-80AD-02163E01295A.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/841/00000/62487351-0170-E611-8836-02163E0122C7.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/841/00000/9E663EF2-0370-E611-9154-FA163E4DB46A.root',
-    'root://cms-xrd-global.cern.ch//store/data/Run2016G/JetHT/RAW/v1/000/279/841/00000/BC9FA6B8-0070-E611-987F-02163E014526.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/0237BBF2-B7BD-E711-925C-02163E013921.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/0AE36582-C4BD-E711-8E41-02163E019D19.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/1A683104-BABD-E711-B275-02163E011C2A.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/206B1EEB-B9BD-E711-88F2-02163E011BD0.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/227D12E5-BCBD-E711-B264-02163E01A283.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/382181EE-B7BD-E711-870F-02163E01A428.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/3A3F3E32-B5BD-E711-9B64-02163E01A25A.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/3C42F99E-CEBD-E711-AFFE-02163E01A413.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/4CD809E4-B9BD-E711-BAAC-02163E01469E.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/4E7FFE77-C9BD-E711-B357-02163E01372D.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/507390BA-D6BD-E711-A2A7-02163E01462F.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/5631416E-D6BD-E711-8C90-02163E013841.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/5CD26463-CBBD-E711-9147-02163E013807.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/70556064-CEBD-E711-8381-02163E01410E.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/86F7638A-C4BD-E711-8A0D-02163E0144E9.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/92A2FA67-CBBD-E711-8552-02163E019DAA.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/92C2084B-D8BD-E711-B92B-02163E019DAA.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/A2922ED5-CFBD-E711-A99B-02163E011F8E.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/A6D2A8A7-C6BD-E711-82FF-02163E0140FA.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/C8F5DF8F-CBBD-E711-A796-02163E01360C.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/CA8DF28A-C9BD-E711-B6A4-02163E011E3E.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/CAB4A0FE-B7BD-E711-A3EE-02163E014188.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/D6D41991-C6BD-E711-9CF8-02163E011A45.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/DE08051E-B3BD-E711-BE10-02163E019B53.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/E69C495C-D0BD-E711-8FE3-02163E0144D3.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/E84561C7-BBBD-E711-9BA6-02163E01A302.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/F00EF528-CDBD-E711-ABC7-02163E019D55.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/F0609541-D6BD-E711-9802-02163E01410E.root',
+   'root://cms-xrd-global.cern.ch//store/data/Run2017F/ZeroBias/RAW/v1/000/305/898/00000/F8C1E661-C9BD-E711-B4A3-02163E01A340.root',
 ])
 
 process.maxEvents.input = cms.untracked.int32(-1)
@@ -44,10 +46,6 @@ process.maxEvents.input = cms.untracked.int32(-1)
 process.options = cms.untracked.PSet(
     SkipEvent = cms.untracked.vstring('ProductNotFound')
 )
-
-# save only taus with some non too small pt
-process.hltDoublePFTau35Reg.MinPt = cms.double( 20. )
-
 
 # create new trigger objects from your trigger results
 process_name = process.name_()

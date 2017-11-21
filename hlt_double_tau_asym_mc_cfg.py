@@ -7229,6 +7229,9 @@ process.hltDoublePFTau35TrackPt1MediumChargedIsolationReg = cms.EDFilter( "HLT1P
     triggerType = cms.int32( 84 ),
     MinPt = cms.double( 20.0 )
 )
+# for the next 2 modules the original inputTag was: hltL1JetsHLTDoublePFTauTrackPt1MediumCombinedIsolationMatchReg
+# now modified with hltSelectedPFTausTrackPt1MediumChargedIsolationReg
+
 process.hltDoublePFTau35TrackPt1MediumChargedIsolationL1HLTMatchedReg = cms.EDFilter( "HLT1PFTau",
     saveTags = cms.bool( True ),
     MaxMass = cms.double( -1.0 ),
@@ -7236,7 +7239,8 @@ process.hltDoublePFTau35TrackPt1MediumChargedIsolationL1HLTMatchedReg = cms.EDFi
     MaxEta = cms.double( 2.1 ),
     MinEta = cms.double( -1.0 ),
     MinMass = cms.double( -1.0 ),
-    inputTag = cms.InputTag( "hltL1JetsHLTDoublePFTauTrackPt1MediumChargedIsolationMatchReg" ),
+    #inputTag = cms.InputTag( "hltL1JetsHLTDoublePFTauTrackPt1MediumChargedIsolationMatchReg" ),
+    inputTag = cms.InputTag( "hltSelectedPFTausTrackPt1MediumChargedIsolationReg" ),
     MinE = cms.double( -1.0 ),
     triggerType = cms.int32( 84 ),
     MinPt = cms.double( 20.0 )
@@ -7244,7 +7248,8 @@ process.hltDoublePFTau35TrackPt1MediumChargedIsolationL1HLTMatchedReg = cms.EDFi
 process.hltDoublePFTau35TrackPt1MediumChargedIsolationDz02Reg = cms.EDFilter( "HLTPFTauPairDzMatchFilter",
     saveTags = cms.bool( True ),
     TriggerType = cms.int32( 84 ),
-    JetSrc = cms.InputTag( "hltL1JetsHLTDoublePFTauTrackPt1MediumChargedIsolationMatchReg" ),
+    #JetSrc = cms.InputTag( "hltL1JetsHLTDoublePFTauTrackPt1MediumChargedIsolationMatchReg" ),
+    JetSrc = cms.InputTag( "hltSelectedPFTausTrackPt1MediumChargedIsolationReg" ),
     JetMinPt = cms.double( 20.0 ),
     JetMaxDZ = cms.double( 0.2 ),
     JetMinDR = cms.double( 0.5 ),
@@ -7348,6 +7353,38 @@ if 'PrescaleService' in process.__dict__:
         if not hasattr(process,pset.pathName.value()):
             process.PrescaleService.prescaleTable.remove(pset)
 
+# adapt HLT modules to the correct process name
+if 'hltTrigReport' in process.__dict__:
+    process.hltTrigReport.HLTriggerResults                    = cms.InputTag( 'TriggerResults', '', 'TEST' )
+
+if 'hltPreExpressCosmicsOutputSmart' in process.__dict__:
+    process.hltPreExpressCosmicsOutputSmart.hltResults = cms.InputTag( 'TriggerResults', '', 'TEST' )
+
+if 'hltPreExpressOutputSmart' in process.__dict__:
+    process.hltPreExpressOutputSmart.hltResults        = cms.InputTag( 'TriggerResults', '', 'TEST' )
+
+if 'hltPreDQMForHIOutputSmart' in process.__dict__:
+    process.hltPreDQMForHIOutputSmart.hltResults       = cms.InputTag( 'TriggerResults', '', 'TEST' )
+
+if 'hltPreDQMForPPOutputSmart' in process.__dict__:
+    process.hltPreDQMForPPOutputSmart.hltResults       = cms.InputTag( 'TriggerResults', '', 'TEST' )
+
+if 'hltPreHLTDQMResultsOutputSmart' in process.__dict__:
+    process.hltPreHLTDQMResultsOutputSmart.hltResults  = cms.InputTag( 'TriggerResults', '', 'TEST' )
+
+if 'hltPreHLTDQMOutputSmart' in process.__dict__:
+    process.hltPreHLTDQMOutputSmart.hltResults         = cms.InputTag( 'TriggerResults', '', 'TEST' )
+
+if 'hltPreHLTMONOutputSmart' in process.__dict__:
+    process.hltPreHLTMONOutputSmart.hltResults         = cms.InputTag( 'TriggerResults', '', 'TEST' )
+
+if 'hltDQMHLTScalers' in process.__dict__:
+    process.hltDQMHLTScalers.triggerResults                   = cms.InputTag( 'TriggerResults', '', 'TEST' )
+    process.hltDQMHLTScalers.processname                      = 'TEST'
+
+if 'hltDQML1SeedLogicScalers' in process.__dict__:
+    process.hltDQML1SeedLogicScalers.processname              = 'TEST'
+
 # limit the number of events to be processed
 process.maxEvents = cms.untracked.PSet(
     input = cms.untracked.int32( 100 )
@@ -7374,15 +7411,15 @@ if 'MessageLogger' in process.__dict__:
     process.MessageLogger.categories.append('FastReport')
 
 # load the DQMStore and DQMRootOutputModule
-process.load( "DQMServices.Core.DQMStore_cfi" )
-process.DQMStore.enableMultiThread = True
-
-process.dqmOutput = cms.OutputModule("DQMRootOutputModule",
-    fileName = cms.untracked.string("DQMIO.root")
-)
-
-process.DQMOutput = cms.EndPath( process.dqmOutput )
-
+#process.load( "DQMServices.Core.DQMStore_cfi" )
+#process.DQMStore.enableMultiThread = True
+#
+#process.dqmOutput = cms.OutputModule("DQMRootOutputModule",
+#    fileName = cms.untracked.string("DQMIO.root")
+#)
+#
+#process.DQMOutput = cms.EndPath( process.dqmOutput )
+#
 # add specific customizations
 _customInfo = {}
 _customInfo['menuType'  ]= "GRun"

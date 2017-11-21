@@ -7,7 +7,7 @@ config = config()
 config.General.transferOutputs = True
 config.General.transferLogs    = True
 
-config.JobType.psetName        = 'customise_data_cfg.py'
+config.JobType.psetName        = 'customise_data_2017_cfg.py'
 config.JobType.pluginName      = 'Analysis'
 config.JobType.outputFiles     = ['outputFULL.root']
 config.JobType.maxMemoryMB     = 4000
@@ -17,7 +17,7 @@ config.Data.splitting          = 'LumiBased'
 config.Data.unitsPerJob        = 20
 
 config.Data.publication        = True
-config.Data.outputDatasetTag   = 'doubleTauTriggerOpenPt'
+config.Data.outputDatasetTag   = 'doubleTauTriggerOpenPt_2017'
 
 config.Site.storageSite        = 'T2_CH_CERN'
 # config.Site.blacklist          = ['T1_US_FNAL']
@@ -29,7 +29,7 @@ if __name__ == '__main__':
     from CRABClient.ClientExceptions import ClientException
     from httplib import HTTPException
 
-    tag = 'doubleTauTriggerV3'
+    tag = 'doubleTauTrigger_asym_2017'
     
     def submit(config):
         try:
